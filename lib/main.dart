@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:group_chat/helper/helperFunctions.dart';
 import 'package:group_chat/pages/auth/login_page.dart';
+import 'package:group_chat/pages/auth/profile_page.dart';
 import 'package:group_chat/pages/home_page.dart';
 import 'package:group_chat/shared/constants.dart';
 
@@ -23,21 +24,21 @@ class _MyAppState extends State<MyApp> {
 
   _getUserLoggedInStatus() async {
     await HelperFunctions.isUserLoggedIn().then((value) => {
-      //print('object') 
+          //print('object')
           if (value != null)
-            {                  
+            {
               setState(() {
-                _isSignedIn = value;                
+                _isSignedIn = value;
               })
-            }            
-        });        
+            }
+        });
   }
 
-   @override
-    void initState() {
-      super.initState();       
-      _getUserLoggedInStatus();
-    }
+  @override
+  void initState() {
+    super.initState();
+    _getUserLoggedInStatus();
+  }
 
   @override
   Widget build(BuildContext context) {

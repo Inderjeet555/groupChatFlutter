@@ -32,7 +32,7 @@ class _LogInPageState extends State<LogInPage> {
           QuerySnapshot snapshot = await DatabaseService(uid: FirebaseAuth.instance.currentUser!.uid).gettingUserData(email);
           await HelperFunctions.saveUserLoggedInStatus(true);
           await HelperFunctions.saveUserEmailSF(email);
-          await HelperFunctions.saveUserEmailSF(snapshot.docs[0]['fullName']);
+          await HelperFunctions.saveUserNameSF(snapshot.docs[0]['fullName']);
           nextScreen(context, const HomePage());
         } else {
           showSnackBar(context, Colors.red, value);

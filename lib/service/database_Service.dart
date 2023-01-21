@@ -26,4 +26,8 @@ class DatabaseService {
         await userCollection.where("email", isEqualTo: email).get();
     return snapshot;
   }
+
+  Future gettingUserGroups() async {
+    return userCollection.doc(uid).snapshots();
+  }
 }
